@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>島選食品貿易公司</title>
+  <style>
+    :root {
+      --primary-color: #2ecc71;
+      --secondary-color: #27ae60;
+      --bg-color: #f4f9f4;
+      --text-color: #2c3e50;
+      --header-color: #1abc9c;
+    }
+
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--header-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--secondary-color);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.75rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .product-item {
+      background: white;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      width: 260px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product-item button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    .cart {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      background-color: #34495e;
+      color: white;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-item {
+        width: 90%;
+      }
+
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>島選食品貿易公司</h1>
+  <p>提供全球食品選品與優質零售服務</p>
+</header>
+
+<nav>
+  <a href="#about">關於我們</a>
+  <a href="#products">商品選購</a>
+  <a href="#contact">聯絡我們</a>
+</nav>
+
+<section id="about">
+  <h2>營運內容</h2>
+  <ul>
+    <li>F401010 國際貿易業</li>
+    <li>F102170 食品什貨批發業</li>
+    <li>F203010 食品什貨、飲料零售業</li>
+    <li>I401010 一般廣告服務業</li>
+    <li>F399990 其他綜合零售業</li>
+  </ul>
+</section>
+
+<section id="products">
+  <h2>商品展示</h2>
+  <div class="product">
+    <div class="product-item">
+      <h3>進口堅果禮盒</h3>
+      <p>NT$550</p>
+      <button onclick="addToCart('進口堅果禮盒', 550)">加入購物車</button>
+    </div>
+    <div class="product-item">
+      <h3>有機紅茶包</h3>
+      <p>NT$320</p>
+      <button onclick="addToCart('有機紅茶包', 320)">加入購物車</button>
+    </div>
+    <div class="product-item">
+      <h3>果乾綜合包</h3>
+      <p>NT$280</p>
+      <button onclick="addToCart('果乾綜合包', 280)">加入購物車</button>
+    </div>
+  </div>
+
+  <div class="cart" id="cart">
+    <h3>🛒 購物車</h3>
+    <ul id="cart-items"></ul>
+    <p id="total">總金額：NT$0</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>聯絡我們</h2>
+  <p>歡迎來信洽詢合作或訂購：<a href="mailto:service@daoselect.com">service@daoselect.com</a></p>
+</section>
+
+<footer>
+  © 2025 島選食品貿易公司 ｜ 統一編號：60646612
+</footer>
+
+<script>
+  let cart = [];
+  function addToCart(product, price) {
+    cart.push({ product, price });
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartItems = document.getElementById("cart-items");
+    const total = document.getElementById("total");
+    cartItems.innerHTML = "";
+    let sum = 0;
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.product} - NT$${item.price}`;
+      cartItems.appendChild(li);
+      sum += item.price;
+    });
+    total.textContent = `總金額：NT$${sum}`;
+  }
+</script>
+
+</body>
+</html>
