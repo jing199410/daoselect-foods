@@ -65,6 +65,13 @@
       text-align: center;
     }
 
+    .product-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
     .product-item button {
       background-color: var(--color-highlight);
       color: white;
@@ -133,16 +140,19 @@
   <h2>商品展示</h2>
   <div class="product">
     <div class="product-item">
+      <img src="https://raw.githubusercontent.com/jing199410/daoselect-foods/main/%E7%A6%AE%E7%9B%92.png" alt="進口果乾禮盒">
       <h3>進口果乾禮盒</h3>
       <p>NT$550</p>
       <button onclick="addToCart('進口果乾禮盒', 550)">加入購物車</button>
     </div>
     <div class="product-item">
+      <img src="https://raw.githubusercontent.com/jing199410/daoselect-foods/main/%E7%B4%85%E8%8C%B6.png" alt="有機紅茶包">
       <h3>有機紅茶包</h3>
       <p>NT$320</p>
       <button onclick="addToCart('有機紅茶包', 320)">加入購物車</button>
     </div>
     <div class="product-item">
+      <img src="https://raw.githubusercontent.com/jing199410/daoselect-foods/main/%E6%9E%9C%E4%B9%BE.png" alt="果乾綜合包">
       <h3>果乾綜合包</h3>
       <p>NT$280</p>
       <button onclick="addToCart('果乾綜合包', 280)">加入購物車</button>
@@ -168,7 +178,7 @@
 <script>
   let cart = [];
   function addToCart(product, price) {
-    cart.push({ product, price });
+    cart.push({ product: product, price: price });
     updateCart();
   }
 
@@ -177,13 +187,13 @@
     const total = document.getElementById("total");
     cartItems.innerHTML = "";
     let sum = 0;
-    cart.forEach(item => {
+    cart.forEach(function(item) {
       const li = document.createElement("li");
-      li.textContent = `${item.product} - NT$${item.price}`;
+      li.textContent = item.product + " - NT$" + item.price;
       cartItems.appendChild(li);
       sum += item.price;
     });
-    total.textContent = `總金額：NT$${sum}`;
+    total.textContent = "總金額：NT$" + sum;
   }
 </script>
 
