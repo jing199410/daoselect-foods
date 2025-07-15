@@ -6,29 +6,29 @@
   <title>島選食品貿易公司</title>
   <style>
     :root {
-      --primary-color: #2ecc71;
-      --secondary-color: #27ae60;
-      --bg-color: #f4f9f4;
-      --text-color: #2c3e50;
-      --header-color: #1abc9c;
+      --color-primary: #7A2F3E;
+      --color-secondary: #BE5952;
+      --color-accent: #E1BF47;
+      --color-bg: #F0EBC1;
+      --color-highlight: #53A592;
     }
 
     body {
       font-family: "Noto Sans TC", sans-serif;
       margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      background-color: var(--color-bg);
+      color: var(--color-primary);
     }
 
     header {
-      background-color: var(--header-color);
+      background-color: var(--color-primary);
       color: white;
       padding: 1.5rem;
       text-align: center;
     }
 
     nav {
-      background-color: var(--secondary-color);
+      background-color: var(--color-secondary);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -58,15 +58,15 @@
     .product-item {
       background: white;
       padding: 1rem;
-      border: 1px solid #ddd;
+      border: 2px solid var(--color-accent);
       border-radius: 12px;
       width: 260px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       text-align: center;
     }
 
     .product-item button {
-      background-color: var(--primary-color);
+      background-color: var(--color-highlight);
       color: white;
       border: none;
       padding: 0.6rem 1rem;
@@ -87,7 +87,7 @@
     }
 
     footer {
-      background-color: #34495e;
+      background-color: var(--color-primary);
       color: white;
       padding: 1.2rem;
       text-align: center;
@@ -124,22 +124,18 @@
 
 <section id="about">
   <h2>營運內容</h2>
-  <ul>
-    <li>F401010 國際貿易業</li>
-    <li>F102170 食品什貨批發業</li>
-    <li>F203010 食品什貨、飲料零售業</li>
-    <li>I401010 一般廣告服務業</li>
-    <li>F399990 其他綜合零售業</li>
-  </ul>
+  <p style="font-size: 1.2rem; line-height: 1.8;">
+    啟動您的國際味蕾事業：從食品什貨批發、飲品零售，到全球貿易服務，我們結合廣告推廣與多元零售通路，提供您全方位、一站式的食品商業解決方案。無論是拓展國際市場、打造品牌形象，還是落地零售通路，我們都是您值得信賴的合作夥伴。
+  </p>
 </section>
 
 <section id="products">
   <h2>商品展示</h2>
   <div class="product">
     <div class="product-item">
-      <h3>進口堅果禮盒</h3>
+      <h3>進口果乾禮盒</h3>
       <p>NT$550</p>
-      <button onclick="addToCart('進口堅果禮盒', 550)">加入購物車</button>
+      <button onclick="addToCart('進口果乾禮盒', 550)">加入購物車</button>
     </div>
     <div class="product-item">
       <h3>有機紅茶包</h3>
